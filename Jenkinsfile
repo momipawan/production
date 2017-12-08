@@ -14,6 +14,14 @@ pipeline {
                     }
                 
             }
+          stage('Regression-testing') {
+             steps {
+                     echo "Success"
+                    }
+                
+            }
+                
+                
             }
        
         } 
