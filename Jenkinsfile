@@ -6,10 +6,7 @@ pipeline {
                 echo 'This stage will be executed first.'
             }
         }
-        stage('Parallel Stage') {
-            when {
-                branch 'master'
-            }
+       
             
             parallel {
                 stage('Branch A') {
@@ -24,7 +21,7 @@ pipeline {
                         echo "On Branch B"
                     }
                 }
-            }
+            
         }
     }
 }
