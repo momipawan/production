@@ -7,10 +7,7 @@ pipeline {
             }
         }
         stage('Sonar-Qube') {
-            steps {
-                echo "executing"
-            }
-           parallel {
+          parallel {
                 stage('Unit-Testing') {
                      steps {
                         echo "It is successfully completed"
