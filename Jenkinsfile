@@ -7,9 +7,18 @@ pipeline {
                 echo 'Building..'
             }
         }
-        stage('Test') {
+        stage('Testing') {
+            paralell {
+            stage("Unit Test") {
             steps {
                 echo 'Testing..'
+            }
+            }
+              stage("Functional Tests") {
+					steps {
+						echo 'functional testing has been done'
+					}
+              } 
             }
         }
         stage('Deploy') {
