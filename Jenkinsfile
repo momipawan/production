@@ -10,20 +10,15 @@ pipeline {
             when {
                 branch 'master'
             }
-            failFast true
             parallel {
                 stage('Branch A') {
-                    agent {
-                        label "for-branch-a"
-                    }
+                    
                     steps {
                         echo "On Branch A"
                     }
                 }
                 stage('Branch B') {
-                    agent {
-                        label "for-branch-b"
-                    }
+                    
                     steps {
                         echo "On Branch B"
                     }
