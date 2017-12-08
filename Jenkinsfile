@@ -1,27 +1,37 @@
 pipeline {
     agent any
     stages {
-        stage('Non-Parallel Stage') {
+        stage('Build') {
             steps {
                 echo 'This stage will be executed first.'
             }
         }
-       
-            
+        stage('SonarQube') {
+           
             parallel {
-                stage('Branch A') {
-                   
+                stage('Unit-Testing') {
+                    
                     steps {
-                        echo "On Branch A"
+                        echo "It is successfully completed"
                     }
                 }
-                stage('Branch B') {
+                stage('Code-Coverage') {
                   
                     steps {
-                        echo "On Branch B"
+                        echo "Reports is Generated"
                     }
                 }
+            }
+            stage('Deploy') {
+                steps {
+                    echo "deploying to servers
+                }
+                
+            }
+            
             
         }
+        
+        
     }
 }
