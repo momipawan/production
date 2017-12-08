@@ -24,12 +24,18 @@ pipeline {
         }
             stage('Deploy') {
                 parallel {
-                  stage('Wait for Approval') {
+                  stage('Deployment') {
                      steps {
-                    echo "deploying to servers"
+                    echo "deploying to the servers"
                 }
              }
-            }
+             stage('Wait for Approval') {
+                   steps {
+                        echo "Wait for manager approval"
+                    }
+                }     
+                    
+            }    
            }
         
     }
