@@ -7,17 +7,17 @@ pipeline {
             }
         }
         stage('SonarQube') {
-           
-            parallel {
+            steps {
+                echo "executing"
+            }
+           parallel {
                 stage('Unit-Testing') {
-                    
-                    steps {
+                     steps {
                         echo "It is successfully completed"
                     }
                 }
                 stage('Code-Coverage') {
-                  
-                    steps {
+                   steps {
                         echo "Reports is Generated"
                     }
                 }
