@@ -12,12 +12,12 @@ pipeline {
                     steps {
                         echo "Success"
                     }
-                }
                 stage('Code-Coverage Report') {
                     steps {
                         echo "Executing Code Coverage report"
                     }
                 }
+            }
             }
        
         } 
