@@ -22,9 +22,7 @@ pipeline {
                     }
                 }
             }
-            stage('Upload Zip To Nexus'){
-              echo "uploading"
-           }  
+       
         } 
                
    }
