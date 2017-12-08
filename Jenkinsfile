@@ -19,6 +19,7 @@ pipeline {
                     }
                 }
             }
+        }
             stage('Deploy') {
                 steps {
                     echo "deploying to servers"
@@ -26,9 +27,6 @@ pipeline {
                 
             }
             
-            
-        }
-        
         
     }
 }
