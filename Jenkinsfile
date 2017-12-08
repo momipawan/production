@@ -1,12 +1,17 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Checkout-Source') {
             steps {
-                echo 'This stage will be executed first.'
+                echo 'Pulling code from GitHub.'
             }
         }
-        stage('Testing') {
+        stage('Build') {
+            steps {
+              echo 'Compiling the source code'  
+            }
+        }
+        stage('SonarQube') {
           parallel {
                 stage('Unit-Testing') {
                      steps {
