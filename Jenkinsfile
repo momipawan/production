@@ -10,7 +10,7 @@ pipeline {
             when {
                 branch 'master'
             }
-            failFast true
+            
             parallel {
                 stage('Branch A') {
                    
