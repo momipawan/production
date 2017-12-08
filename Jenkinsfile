@@ -7,6 +7,9 @@ pipeline {
             }
         }
         stage('Unit-Testing') {
+            steps {
+                echo "executing test"
+            }
             parallel {
                 stage('Functional-testing') {
                     steps {
