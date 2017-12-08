@@ -1,34 +1,30 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Non-Parallel Stage') {
             steps {
-                echo 'This Build will be executed first.'
+                echo 'This stage will be executed first.'
             }
         }
-        stage('Unit-Testing') {
+        stage('Parallel Stage') {
             when {
                 branch 'master'
             }
+            failFast true
             parallel {
-                stage('Functional-testing') {
+                stage('Branch A') {
+                   
                     steps {
-                        echo "Success"
+                        echo "On Branch A"
                     }
-                
-            }
-          stage('Regression-testing') {
-             steps {
-                     echo "Success"
+                }
+                stage('Branch B') {
+                  
+                    steps {
+                        echo "On Branch B"
                     }
-                
+                }
             }
-                
-                
-            }
-       
-        } 
-               
-   }
-  
+        }
+    }
 }
