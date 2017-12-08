@@ -1,29 +1,30 @@
 pipeline {
     agent any
     stages {
-        stage('Non-Parallel Stage') {
+        stage('Build') {
             steps {
-                echo 'This stage will be executed first.'
+                echo 'This Build will be executed first.'
             }
         }
-        stage('Parallel Stage') {
-            when {
-                branch 'master'
-            }
+        stage('Unit-Testing') {
             parallel {
-                stage('Branch A') {
-                    
+                stage('Functional-testing') {
                     steps {
-                        echo "On Branch A"
+                        echo "Success"
                     }
                 }
-                stage('Branch B') {
-                    
+                stage('Code-Coverage Report') {
                     steps {
-                        echo "On Branch B"
+                        echo "Executing Code Coverage report"
                     }
                 }
             }
-        }
-    }
+          stage('Upload Zip To Nexus'){
+              echo "uploading"
+        
+    }  
+            
+               
+   }
+  
 }
