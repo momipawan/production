@@ -22,6 +22,12 @@ pipeline {
               
             }
         }
+        
+        stage('Upload-To-Nexus') {
+            steps {
+              echo 'uploading files to the Nexus repo'  
+            }
+        }
             stage('Deploy') {
                 parallel {
                   stage('Deployment') {
@@ -31,7 +37,7 @@ pipeline {
              }
              stage('Wait for Approval') {
                    steps {
-                        echo "Wait for manager approval"
+                        echo "Build is waiting  for manager approval"
                     }
                 }     
                     
