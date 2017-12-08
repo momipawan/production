@@ -7,6 +7,9 @@ pipeline {
             }
         }
         stage('Unit-Testing') {
+            when {
+                branch 'master'
+            }
             parallel {
                 stage('Functional-testing') {
                     steps {
