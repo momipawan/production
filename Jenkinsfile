@@ -18,15 +18,19 @@ pipeline {
                         echo "Reports is Generated"
                     }
                 }
+              
+              
             }
         }
             stage('Deploy') {
-                steps {
+                parallel {
+                  stage('Wait for Approval') {
+                     steps {
                     echo "deploying to servers"
                 }
-                
+             }
             }
-            
+           }
         
     }
 }
