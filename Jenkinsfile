@@ -6,7 +6,7 @@ pipeline {
                 echo 'This stage will be executed first.'
             }
         }
-        stage('Sonar-Qube') {
+        stage('Testing') {
           parallel {
                 stage('Unit-Testing') {
                      steps {
