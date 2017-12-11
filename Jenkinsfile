@@ -33,16 +33,16 @@ pipeline {
               echo 'uploading files to the Nexus repo'  
             }
         }
-            stage('Deploy') {
+            stage('Wait For Approval') {
                 parallel {
-                  stage('Deployment') {
+                  stage('Approval') {
                      steps {
-                    echo "deploying to the servers"
+                    echo "Approval is Accepted by pAwan"
                 }
              }
-             stage('Wait for Approval') {
+             stage('Deployment') {
                    steps {
-                        echo "Build is waiting  for manager approval"
+                        echo "Executing Deployment"
                     }
                 }     
                     
