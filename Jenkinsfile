@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout-Source') {
+        stage('Checkout') {
             steps {
                 echo 'Pulling code from GitHub.'
             }
@@ -37,10 +37,10 @@ pipeline {
                 parallel {
                   stage('Approval') {
                      steps {
-                    echo "Approval is Accepted by pAwan"
+                    echo "Approval is Accepted by pawan"
                 }
              }
-             stage('Deployment') {
+             stage('Deplo') {
                    steps {
                         echo "Executing Deployment"
                     }
