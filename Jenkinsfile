@@ -13,12 +13,12 @@ pipeline {
         }
         stage('SonarQube') {
           parallel {
-                stage('Unit-Testing') {
+                stage('UnitTesting') {
                      steps {
                         echo "It is successfully completed"
                     }
                 }
-                stage('Code-Coverage') {
+                stage('CodeCoverage') {
                    steps {
                         echo "Reports is Generated"
                     }
@@ -33,14 +33,14 @@ pipeline {
               echo 'uploading files to the Nexus repo'  
             }
         }
-            stage('Wait For Approval') {
+            stage('Approval') {
                 parallel {
                   stage('Approval') {
                      steps {
                     echo "Approval is Accepted by pawan"
                 }
              }
-             stage('Deplo') {
+             stage('Deploy') {
                    steps {
                         echo "Executing Deployment"
                     }
