@@ -6,12 +6,8 @@ pipeline {
                 echo 'Pulling code from GitHub.'
             }
         }
+        
         stage('Build') {
-            steps {
-              echo 'Compiling the source code'  
-            }
-        }
-        stage('SonarQube') {
           parallel {
                 stage('UnitTesting') {
                      steps {
