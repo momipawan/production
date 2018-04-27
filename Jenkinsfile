@@ -9,19 +9,16 @@ pipeline {
             }
         }
         
-        stage('Build') {
-          parallel {
-                stage('UnitTesting') {
-                     steps {
-                        echo "It is successfully completed"
-                    }
-                }
-                
-              
-              
+        stage("Build") {
+        parallel (
+            "First Build" : {
+                build("first-build-job")
+            },
+            "Second Build" : {
+                build("second-build-job")
             }
-        }
-        
+        )
+            
         stage('Upload-To-Nexus') {
             steps {
               echo 'uploading files to the Nexus repo'  
