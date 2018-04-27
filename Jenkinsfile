@@ -17,11 +17,7 @@ pipeline {
                         echo "It is successfully completed"
                     }
                 }
-                stage('CodeCoverage') {
-                   steps {
-                        echo "Reports is Generated"
-                    }
-                }
+                
               
               
             }
