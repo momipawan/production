@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {label 'WCNCSCMJST05'
+    }
+
     stages {
         stage('Checkout') {
             steps {
