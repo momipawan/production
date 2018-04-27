@@ -10,9 +10,6 @@ pipeline {
         }
         
         stage('Build') {
-            steps{
-                echo 'Code is being compiled'
-            }
           parallel {
                 stage('UnitTesting') {
                      steps {
