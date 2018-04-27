@@ -10,14 +10,24 @@ pipeline {
         }
         
         stage("Build") {
-        parallel (
-            "First Build" : {
-                build("first-build-job")
-            },
-            "Second Build" : {
-                build("second-build-job")
-            }
-        )
+			parallel {
+				stage("Unit Tests") {
+					steps {
+						echo 'done'
+					}
+				}
+				stage("Functional Tests") {
+					steps {
+						echo 'java -version'
+					}
+				}
+				stage("Integration Tests") {
+					steps {
+						echo 'java -version'
+					}
+				}
+			}
+		}
             
         stage('Upload-To-Nexus') {
             steps {
